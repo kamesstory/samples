@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:js';
 
 import 'src/autofill.dart';
 import 'src/form_widgets.dart';
@@ -16,6 +17,10 @@ final http.Client httpClient = MockClient();
 
 void main() {
   runApp(FormApp());
+
+  var cohere = JsObject.fromBrowserObject(context['Cohere']);
+  var jsIdentify = JsObject.jsify({'displayName': 'Flutter Test', 'email': 'flutter@example.com'});
+  cohere.callMethod('identify', ['fluttertest', jsIdentify]);
 }
 
 final demos = [
