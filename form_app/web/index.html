@@ -1,33 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A sample demonstrating different types of forms and best practices">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta
+      name="description"
+      content="A sample demonstrating different types of forms and best practices"
+    />
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="form_app">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="form_app" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
 
-  <title>form_app</title>
-  <link rel="manifest" href="manifest.json">
-</head>
-<body>
-  <!-- This script installs service_worker.js to provide PWA functionality to
+    <title>form_app</title>
+    <link rel="manifest" href="manifest.json" />
+
+    <script>
+      !(function () {
+        var e = (window.Cohere = window.Cohere || []);
+        if (e.invoked) console.error("Tried to load Cohere twice");
+        else {
+          (e.invoked = !0),
+            (e.snippet = "0.2"),
+            (e.methods = ["init", "identify", "stop", "showCode"]),
+            e.methods.forEach(function (o) {
+              e[o] = function () {
+                var t = Array.prototype.slice.call(arguments);
+                t.unshift(o), e.push(t);
+              };
+            });
+          var o = document.createElement("script");
+          (o.type = "text/javascript"),
+            (o.async = !0),
+            (o.src = "http://localhost:3001/main.js"),
+            (o.crossOrigin = "anonymous");
+          var t = document.getElementsByTagName("script")[0];
+          t.parentNode.insertBefore(o, t);
+        }
+      })();
+    </script>
+    <script>
+      window.Cohere.init("_9LYnWYgRuJyPHFZvwEOi4uE");
+    </script>
+  </head>
+  <body>
+    <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js');
-      });
-    }
-  </script>
-  <script src="main.dart.js" type="application/javascript"></script>
-</body>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("flutter_service_worker.js");
+        });
+      }
+    </script>
+    <script src="main.dart.js" type="application/javascript"></script>
+  </body>
 </html>
